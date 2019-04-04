@@ -7,7 +7,6 @@
  *
  *
  *
- * This is a base template for my C programs 
  * 
  ************************************************/ 
 
@@ -18,10 +17,25 @@
 
 int main()
 {
+	int num;
+	int num2;
+	FILE * data;
+	FILE * merge;
 
+	merge = fopen ("merge.txt","w");
+	data = fopen ("data.txt","r");
 	
+	fscanf (data, "%d", &num);
+	printf ("%d\n", num);
+	fprintf (merge, "%d", num);
+	fclose (merge);
+	merge = fopen ("merge.txt","r");
+	fscanf (merge, "%d", &num2);
+	printf ("%d\n", num2);
 
-	printf("Hello world!\n");
+	fclose(data);
+	fclose(merge);
+	
 	return 0;
 }
 
